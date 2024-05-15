@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color:'#000',
     fontWeight:'bold',
-    fontFamily:'Arial'
   },
   comicDesc: {
     fontSize: 15,

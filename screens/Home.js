@@ -59,7 +59,7 @@ const recommended = [
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>RECOMMENDED...</Text>
-        <ScrollView style={styles.container} horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {recommended.map((item, index) =>
             <TouchableOpacity key={item.title} onPress={() => navigation.navigate('Details',
               { title: item.title, poster: item.poster, desc: item.desc, chapters: item.chapters, url: item.url })}>
