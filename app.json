@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "RedWheel",
+    "slug": "RedWheel",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#15191a"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/splash.png",
+        "backgroundColor": "#15191a"
+      },
+      "package": "com.in1y4n.RedWheel"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9ced2821-941c-4c78-855f-b068cd55a08e"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9ced2821-941c-4c78-855f-b068cd55a08e"
+      }
+    }
+  }
+}
