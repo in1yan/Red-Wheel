@@ -2,7 +2,7 @@
   "expo": {
     "name": "RedWheel",
     "slug": "RedWheel",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#15191a"
       },
       "package": "com.in1y4n.RedWheel"
