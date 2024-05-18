@@ -32,6 +32,8 @@ const recommended = [
         "url": "https://readm.today/manga/shingeki-no-kyojin-170424",
         "chapters": "145"
     },
+    {"chapters": "261", "desc": "Yuuji is a genius at track and field. But he has zero interest running around in circles, he's happy as a clam in the Occult Research Club. Although he's only in the club for kicks, things get serious when a real spirit shows up at school! Life's about to get really strange in Sugisawa Town #3 High School!", "poster": "https://readm.today/uploads/chapter_files/cover/tbn/1703075306_198x0.jpg", "title": "Jujutsu Kaisen", "url": "https://readm.today/manga/jujutsu-kaisen-588420"},
+
 ];
 
   const pop_url = "https://environmental-shina-iniyanv-9010b247.koyeb.app/popular";
@@ -53,21 +55,18 @@ const recommended = [
     )
   }
 
-  // Calculate number of columns dynamically based on screen width
-
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <View style={styles.section}>
+    <ScrollView vertical style={styles.container} showsVerticalScrollIndicator={false}>
         <Text style={styles.sectionTitle}>RECOMMENDED...</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.section}>
           {recommended.map((item, index) =>
             <TouchableOpacity key={item.title} onPress={() => navigation.navigate('Details',
               { title: item.title, poster: item.poster, desc: item.desc, chapters: item.chapters, url: item.url })}>
               <Card key={item.title} poster={item.poster} title={item.title} desc={item.desc} />
             </TouchableOpacity>
           )}
+          <View style={{width:220}}></View>
         </ScrollView>
-      </View>
 
       <View style={styles.container}>
         <Text style={styles.sectionTitle}>POPULAR</Text>
@@ -102,7 +101,11 @@ const styles = StyleSheet.create({
     width:'100%'
   },
   section: {
+    flexDirection:'row',
     marginBottom: 24,
+    width:'100%',
+    paddingRight:100,
+    marginRight:200,
   },
   sectionTitle: {
     fontSize: 18,

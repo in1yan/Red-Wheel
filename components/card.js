@@ -7,7 +7,7 @@
               source={{ uri: poster }}
               style={styles.comicImage}
             />
-            <Text style={styles.comicTitle}>{title}</Text>
+            <Text style={styles.comicTitle} numberOfLines={1}>{title}</Text>
             <Text style={styles.comicDesc} numberOfLines={2}>{desc}</Text>
           </View>
           )
@@ -15,7 +15,7 @@
 const styles = StyleSheet.create({
     comicImage: {
     width: 150,
-    height: 200,
+    height: 250,
     resizeMode: 'cover',
     marginBottom: 10,
     borderRadius:10,
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     borderRadius:10,
     paddingTop:5,
     paddingBottom:5,
-    width:155
+    width:155,
+    height:350,
   },
 })
 

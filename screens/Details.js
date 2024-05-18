@@ -6,7 +6,7 @@ const Details = ({navigation,route}) =>{
 	const renderCh=({item})=>(
 			<TouchableOpacity onPress={()=>navigation.navigate('Viewer',{url:route.params.url,ch:item})}>
 				<View key={item} style ={styles.chButton}>
-					<Text style={{fontSize:20 ,textAlign:'center',textAlignVertical:'center'}}>ch {item}</Text>
+					<Text style={{fontSize:20}}>ch {item}</Text>
 				</View>
 			</TouchableOpacity>
 			);
@@ -76,13 +76,16 @@ const styles = StyleSheet.create({
     color:'#fff'
   },
   chButton:{
-  	width:60,
-  	height:40,
+  	width:70,
+    height:60,
   	marginBottom: 24,
   	textAlign:'center',
   	backgroundColor:'red',
   	marginRight:10,
-  	borderRadius:20
+  	borderRadius:20,
+    fontSize:20,
+    alignItems:'center',
+    justifyContent:'center'
   },
 })
 export default Details;
