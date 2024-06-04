@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions,FlatList, ActivityIndicator} from 'react-native';
-import Card from '../components/card';
-
+import { View,Text, StyleSheet, ScrollView, TouchableOpacity,FlatList, ActivityIndicator} from 'react-native';
+import Card from '../components/card.js';
+import Bar from '../components/searchBar.js'
+      
 const Home = ({ navigation }) => {
 const recommended = [
     {
@@ -59,6 +60,7 @@ const recommended = [
     <ScrollView vertical style={styles.container} showsVerticalScrollIndicator={false}>
         <Text style={styles.sectionTitle}>RECOMMENDED...</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.section}>
+          <View style={{width:20}}></View>
           {recommended.map((item, index) =>
             <TouchableOpacity key={item.title} onPress={() => navigation.navigate('Details',
               { title: item.title, poster: item.poster, desc: item.desc, chapters: item.chapters, url: item.url })}>
@@ -98,10 +100,10 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginRight: 10,
     height:'100%',
-    width:'100%'
+    width:'100%',
+    paddingLeft:5
   },
   section: {
-    flexDirection:'row',
     marginBottom: 24,
     width:'100%',
     paddingRight:100,
@@ -113,6 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     color:'red',
     paddingRight:10,
+    paddingLeft:10
   },
   columnWrapperStyle: {
     justifyContent: 'space-between',

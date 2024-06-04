@@ -39,7 +39,7 @@ const App =()=>{
                 <Stack.Screen 
                     name='Viewer'
                     component={Viewer}
-                    options={{title:'Start reading',headerShown:false}}
+                    options={{title:'Start reading',headerShown:true}}
                     screenOptions={{
                         headerStyle:{
                             backgroundColor:'red',
