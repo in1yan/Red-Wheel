@@ -1,7 +1,8 @@
 # Red Wheel
 
 Red Wheel is a mobile application designed for reading manga for free. It is currently under development and is built using React Native for the front end and a Python Flask API for the back end. The early release of the application is functioning well, providing users with a promising glimpse of its capabilities.
-
+[download the latest version](https://github.com/iniyan2006/Red-Wheel/releases/download/v1.0.5/red.wheel.apk)
+for previous versions visit the [releases page](https://github.com/iniyan2006/Red-Wheel/releases).
 ## Screenshots
 
 ### Home Screen
@@ -17,4 +18,4 @@ Red Wheel is a mobile application designed for reading manga for free. It is cur
 
 <img src="https://github.com/iniyan2006/Red-Wheel/assets/78460090/ca6e7e64-b93c-48c3-b963-629fb2c71c9e" alt="Viewer Screen" width="300">
 
-**Note:** The images and information are sourced from readm.today.
+**Note:** The images and information are sourced from [readm.today](https://readm.today)
