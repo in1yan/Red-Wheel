@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView, StyleSheet, Image, FlatList, TouchableOpacity, Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 const Details = ({ navigation, route }) => {
   const chapters = Array.from({ length: route.params.chapters }, (_, index) => index + 1);
   const [chapter, setChapter] = useState('1');
@@ -18,7 +17,8 @@ const Details = ({ navigation, route }) => {
   const chapterSelection = async (ch) => {
     console.log(ch.toString())
     await AsyncStorage.setItem(route.params.title, ch.toString());
-    navigation.navigate('Viewer', { url: route.params.url, ch:ch });
+    setChapter(ch.toString())
+    navigation.navigate('Viewer', { url: route.params.url, ch:ch, title:route.params.title });
   };
 
 
@@ -36,7 +36,7 @@ const Details = ({ navigation, route }) => {
       <View style={styles.section}>
         <Image source={{ uri: route.params.poster }} style={styles.poster} />
       </View>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Viewer', { url: route.params.url, ch: chapter })}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Viewer', { url: route.params.url, ch: chapter,title:route.params.title })}>
           <Text style={styles.buttonText}>{`continue (ch ${chapter})`}</Text>
       </TouchableOpacity>
       <Text style={styles.sectionTitle}>Description</Text>
