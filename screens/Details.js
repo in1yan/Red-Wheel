@@ -4,7 +4,15 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Details = ({ navigation, route }) => {
   const chapters = Array.from({ length: route.params.chapters }, (_, index) => index + 1);
   const [chapter, setChapter] = useState('1');
-
+  const [reads,setReads] = useState([])
+  const [buttonControll,setBc] = useState(false);
+  const data = {
+    title:route.params.title,
+    poster:route.params.poster,
+    desc:route.params.desc,
+    chapters:route.params.chapters,
+    url:route.params.url
+  }
   useEffect(() => {
     const loadChapter = async () => {
       const neededChapter = await AsyncStorage.getItem(route.params.title);
@@ -12,7 +20,16 @@ const Details = ({ navigation, route }) => {
         setChapter(neededChapter);
       }
     };
+    const checkIfAdded = async()=>{
+      const oldReads = await AsyncStorage.getItem('reads');
+      const oldReadsArray = oldReads ? JSON.parse(oldReads) : [];
+      const isAdded = oldReadsArray.some(item => item.title === route.params.title);
+      if (isAdded) {
+        setBc(true);
+      }
+    };
     loadChapter();
+    checkIfAdded();
   }, [route.params.title]);
   const chapterSelection = async (ch) => {
     console.log(ch.toString())
@@ -29,12 +46,22 @@ const Details = ({ navigation, route }) => {
       </View>
     </TouchableOpacity>
   );
-
+  const saveToLib=async({data})=>{
+    console.log(data)
+    const old = await AsyncStorage.getItem('reads');
+    const oldArray=old ? JSON.parse(old) : [];
+    oldArray.push(data);
+    await AsyncStorage.setItem('reads', JSON.stringify(oldArray));
+    setBc(true);
+  }
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <Text style={styles.heading}>{route.params.title}</Text>
       <View style={styles.section}>
         <Image source={{ uri: route.params.poster }} style={styles.poster} />
+      </View>
+      <View style={styles.button}>
+        <Button title="add to library" disabled={buttonControll} color='red' onPress={()=>saveToLib({data})}/>
       </View>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Viewer', { url: route.params.url, ch: chapter,title:route.params.title })}>
           <Text style={styles.buttonText}>{`continue (ch ${chapter})`}</Text>
