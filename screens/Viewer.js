@@ -71,10 +71,10 @@ const Viewer = ({ navigation, route }) => {
             keyExtractor={item=>item.url}
             ListFooterComponent={
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.button} onPress={()=>handleChange(chapter-1)}>
+                <TouchableOpacity style={styles.button} onPress={()=>handleChange(parseInt(chapter,10)-1)}>
                   <Text style={{color:'white',fontSize:20}}>Previous</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={()=>handleChange(chapter+1)}>
+                <TouchableOpacity style={styles.button} onPress={()=>handleChange(parseInt(chapter,10)+1)}>
                   <Text style={{color:'white',fontSize:20}}>Next</Text>
                 </TouchableOpacity>
             </View>
