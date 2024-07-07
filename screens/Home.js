@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View,Text, StyleSheet, ScrollView, TouchableOpacity,FlatList, ActivityIndicator} from 'react-native';
+import {View,
+        Text, 
+        StyleSheet, 
+        ScrollView, 
+        TouchableOpacity,
+        FlatList, 
+        ActivityIndicator
+        } from 'react-native';
 import Card from '../components/card.js';
 import Bar from '../components/searchBar.js'
       

@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, Image, FlatList, TouchableOpacity, Button } from 'react-native';
+import {View, 
+        Text, 
+        ScrollView, 
+        StyleSheet, 
+        Image, 
+        FlatList,
+        TouchableOpacity, 
+        Button } from 'react-native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const Details = ({ navigation, route }) => {
   const chapters = Array.from({ length: route.params.chapters }, (_, index) => index + 1);
@@ -70,12 +78,15 @@ const Details = ({ navigation, route }) => {
       <Text style={styles.desc}>{route.params.desc}</Text>
       <Text style={styles.sectionTitle}>Chapters</Text>
       <View style={styles.section}>
-        <FlatList
-          data={chapters}
-          renderItem={renderCh}
-          keyExtractor={(item) => item.toString()}
-          numColumns={4}
-        />
+        <View style={styles.chapterSection}>
+            <FlatList
+              data={chapters}
+              renderItem={renderCh}
+              keyExtractor={(item) => item.toString()}
+              numColumns={4}
+              contentContainerStyle={{flexGrow:0}}
+            />
+        </View>
       </View>
     </ScrollView>
   );
@@ -101,6 +112,9 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     alignSelf: 'center',
     marginLeft: 10,
+  },
+  chapterSection: {
+    flex:1,
   },
   sectionTitle: {
     fontSize: 25,

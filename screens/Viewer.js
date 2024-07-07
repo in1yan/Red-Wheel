@@ -1,5 +1,14 @@
 import React, { useState, useEffect,useRef } from 'react';
-import {Modal,Text,ActivityIndicator,FlatList,View,Image,TouchableOpacity,Dimensions, StyleSheet} from 'react-native';
+import {Modal,
+        Text,
+        ActivityIndicator,
+        FlatList,
+        View,
+        Image,
+        TouchableOpacity,
+        Dimensions, 
+        StyleSheet
+      } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const width = Dimensions.get('window').width;
@@ -74,7 +83,8 @@ const Viewer = ({ navigation, route }) => {
                 <TouchableOpacity style={styles.button} onPress={()=>handleChange(parseInt(chapter,10)-1)}>
                   <Text style={{color:'white',fontSize:20}}>Previous</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={()=>handleChange(parseInt(chapter,10)+1)}>
+                <TouchableOpacity style={styles.button} onPress={()=>handleChange(parseInt(chapter,10
+                          )+1)}>
                   <Text style={{color:'white',fontSize:20}}>Next</Text>
                 </TouchableOpacity>
             </View>
